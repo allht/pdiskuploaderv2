@@ -1,5 +1,6 @@
 const token = process.env.TOKEN;
 
+const request = require('request');
 const Bot = require('node-telegram-bot-api');
 let bot;
 
@@ -12,25 +13,6 @@ else {
 }
 
 console.log('Bot server started in the ' + process.env.NODE_ENV + ' mode');
-
-// bot.on('message', (msg) => {
-//   const name = msg.from.first_name;
-//   bot.sendMessage(msg.chat.id, 'Hello, ' + name + '!').then(() => {
-//       console.log(msg);
-//     // reply sent!
-//   });
-// });
-
-const express = require('express');
-// process.env.NTBA_FIX_319 = 1;
-// const TelegramBot = require('node-telegram-bot-api');
-const request = require('request');
-
-// const port = process.env.PORT || 3001
-
-// const token = '1907182975:AAGW4p9DXySjjezs-9f4JmU80f1zJXsaXG4';
-// const bot = new TelegramBot(token, { polling: true });
-// const app = express();
 
 bot.on('message', msg => {
     console.log(msg);
@@ -90,8 +72,5 @@ else{
 }
 });
 
-// app.listen(port,()=>{
-//     console.log('Its running')
-// })
 
 module.exports = bot;

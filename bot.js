@@ -21,6 +21,8 @@ var hi = "hi";
 var bye = "bye";
 var start = "/start";
 var help = "/help";
+var magnet ="magnet"
+
 if (msg.text.toString().toLowerCase().indexOf(hi) === 0) {
 bot.sendMessage(msg.chat.id,"Hello dear user");
 } 
@@ -34,6 +36,24 @@ else if (msg.text.toString().toLowerCase().includes(start)){
 else if (msg.text.toString().toLowerCase().includes(help)){
     var parsedHtml = "1. Send file to @asulinkgenbot.\n2. Forward the message here(Don't Copy Paste)";
     bot.sendMessage(msg.chat.id, parsedHtml, { parse_mode: 'HTML' });
+}
+//if block to upload by magnet link 
+else if (msg.text.toString().toLowerCase().includes(magnet)){
+    if(msg.chat.id == 852057713){
+        magnetlink = msg.text;
+        magnetTitle = msg.reply_to_message.text;
+        bot.sendMessage(msg.chat.id,"Title for your magnet please, /magnet");
+        finallink = "https://www.pdisk.net/api/ndisk_manager/video/create?link_type=magnet&content_src="+magnetlink+"&source=2000&uid=51081852&title="+magnetTitle+"&description=Follow @moviesnew24 for more movies";
+        const url = encodeURI(finallink);
+        request(url, { json: true }, (err, res, body) => 
+                    {
+                      if (err) { return console.log(err); }
+                        var id = body.data.item_id;
+                bot.sendMessage(msg.chat.id,magnetTitle+': \nhttps://pdisk.net/share-video?videoid='+id, { parse_mode: 'HTML' });
+                      //console.log(body.explanation);
+         });
+        //bot.sendMessage(msg.chat.id, url, { parse_mode: 'HTML' });
+    }
 }
     
     //if block to convert link to pdisk

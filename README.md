@@ -39,6 +39,8 @@ As i work on MacOS and sometimes on Ubuntu, you may face some problems with my n
 
 If your bot is not responding locally, in most cases, you will need to reset the environment variables by restarting your application.
 
+Some times git won't connect, So you have to add ` git remote set-url origin git@github.com:Suryaprakash1024/pdiskuploaderv2.git`
+
 ### Links and references
 
 Actually, this repo is created because I've faced problems when I was trying to run the bot using [mvalipour's article](http://mvalipour.github.io/node.js/2015/12/06/telegram-bot-webhook-existing-express/) and [this PR](https://github.com/mvalipour/telegram-bot-webhook/pull/3) to his repo. Still, these links will be very useful for the beginners. 

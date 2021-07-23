@@ -16,7 +16,7 @@ Starter pack for running telegram bot on the Heroku using Node.js
 ### Deploy your bot to the heroku
 
 1. Create the [Heroku account](https://heroku.com) and install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
-2. Login to your Heroku account using `heroku login`.
+2. Login to your Heroku account using `heroku login` or `heroku login -i` to enter credentials from cli.
 3. Go to the app's folder using `cd ~/heroku-node-telegram-bot`
 4. Run `heroku create` to prepare the Heroku environment.
 5. Run `heroku config:set TOKEN=SET HERE THE TOKEN YOU'VE GOT FROM THE BOTFATHER` and `heroku config:set HEROKU_URL=$(heroku info -s | grep web_url | cut -d= -f2)` to configure environment variables on the server.

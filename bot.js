@@ -34,7 +34,7 @@ else if (msg.text.toString().toLowerCase().includes(start)){
     bot.sendMessage(msg.chat.id, parsedHtml, { parse_mode: 'HTML' });
 }
 else if (msg.text.toString().toLowerCase().includes(help)){
-    var parsedHtml = "1. Send file to @asulinkgenbot.\n2. Forward the message here(Don't Copy Paste)";
+    var parsedHtml = "1. Send file to @asulinkgenbot.\n2. Forward the message here(Don't Copy Paste)\n3. If you want magnet link simply send the  title first and then reply to the Title with magnet link.";
     bot.sendMessage(msg.chat.id, parsedHtml, { parse_mode: 'HTML' });
 }
 //if block to upload by magnet link 

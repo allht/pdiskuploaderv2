@@ -39,17 +39,18 @@ else if (msg.text.toString().toLowerCase().includes(help)){
 }
 //if block to upload by magnet link 
 else if (msg.text.toString().toLowerCase().includes(magnet)){
-    if(msg.chat.id == 852057713){
+    //only for admin
+    if(msg.chat.id == process.env.uid){
         magnetlink = msg.text;
         magnetTitle = msg.reply_to_message.text;
         bot.sendMessage(msg.chat.id,"Title for your magnet please, /magnet");
-        finallink = "https://www.pdisk.net/api/ndisk_manager/video/create?link_type=magnet&content_src="+magnetlink+"&source=2000&uid=51081852&title="+magnetTitle+"&description=Follow @moviesnew24 for more movies";
+        finallink = "https://www.pdisk1.net/api/ndisk_manager/video/create?link_type=magnet&content_src="+magnetlink+"&source=2000&"+process.env.pdiskid+"&title="+magnetTitle+"&description=Follow @moviesnew24 for more movies";
         const url = encodeURI(finallink);
         request(url, { json: true }, (err, res, body) => 
                     {
                       if (err) { return console.log(err); }
                         var id = body.data.item_id;
-                bot.sendMessage(msg.chat.id,magnetTitle+': \nhttps://pdisk.net/share-video?videoid='+id, { parse_mode: 'HTML' });
+                bot.sendMessage(msg.chat.id,magnetTitle+': \nhttps://pdisk1.net/share-video?videoid='+id, { parse_mode: 'HTML' });
                       //console.log(body.explanation);
          });
         //bot.sendMessage(msg.chat.id, url, { parse_mode: 'HTML' });
